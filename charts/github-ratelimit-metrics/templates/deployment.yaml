@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "github-ratelimit-metrics.fullname" . }}
+  labels:
+    {{- include "github-ratelimit-metrics.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "github-ratelimit-metrics.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "github-ratelimit-metrics.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "github-ratelimit-metrics.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+          - github-ratelimit-metrics
+          {{- with .Values.extraArgs }}
+            {{- toYaml . | nindent 10 }}
+          {{- end }}
+          env:
+            - name: "GITHUB_APP_ID"
+              valueFrom:
+                secretKeyRef:
+                  key:  github.app.id
+                  name: {{ include "github-ratelimit-metrics.fullname" . }}
+            - name: "GITHUB_INSTALLATION_ID"
+              valueFrom:
+                secretKeyRef:
+                  key:  github.installation.id
+                  name: {{ include "github-ratelimit-metrics.fullname" . }}
+            - name: "GITHUB_PRIVATE_KEY"
+              valueFrom:
+                secretKeyRef:
+                  key:  github.private.key
+                  name: {{ include "github-ratelimit-metrics.fullname" . }}
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /metrics
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /metrics
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
