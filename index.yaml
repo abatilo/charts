@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  github-ratelimit-metrics:
+  - apiVersion: v2
+    appVersion: v0.2.1
+    created: "2022-10-09T18:54:32.204722472Z"
+    description: A Helm chart for github-ratelimit-metrics
+    digest: 6ed64acec7bb243da60c72baa7311530650ce2684e6fabdc7b19fbc967cd04fb
+    name: github-ratelimit-metrics
+    type: application
+    urls:
+    - https://github.com/abatilo/charts/releases/download/github-ratelimit-metrics-0.1.0/github-ratelimit-metrics-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-10-09T18:54:31.714599413Z"
