@@ -3,40 +3,39 @@ kind: Deployment
 metadata:
   name: {{ include "debug-playground.fullname" . }}
   labels:
-    {{- include "debug-playground.labels" . | nindent 4 }}
+    name: {{ include "debug-playground.fullname" . }}
 spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
       maxSurge: 100%
       maxUnavailable: 100%
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   selector:
     matchLabels:
-      {{- include "debug-playground.selectorLabels" . | nindent 6 }}
+      name: {{ include "debug-playground.fullname" . }}
   template:
     metadata:
       labels:
-        {{- include "debug-playground.labels" . | nindent 8 }}
-        {{- with .Values.podLabels }}
-        {{- toYaml . | nindent 8 }}
-        {{- end }}
+        name: {{ include "debug-playground.fullname" . }}
     spec:
-      serviceAccountName: {{ include "debug-playground.serviceAccountName" . }}
+      serviceAccountName: incorrect
       containers:
         - name: {{ .Chart.Name }}
           image: "nginx:{{ .Chart.AppVersion }}"
           imagePullPolicy: IfNotPresent
           ports:
-            - name: http
-              containerPort: {{ .Values.service.port }}
+            - containerPort: 80
               protocol: TCP
           livenessProbe:
-            {{- toYaml .Values.livenessProbe | nindent 12 }}
+            httpGet:
+              path: /livez
+              port: http
           readinessProbe:
-            {{- toYaml .Values.readinessProbe | nindent 12 }}
-          resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            httpGet:
+              path: /readyz
+              port: http
+          resources: {}
           volumeMounts:
             - name: index
               mountPath: /usr/share/nginx/html/index.html
