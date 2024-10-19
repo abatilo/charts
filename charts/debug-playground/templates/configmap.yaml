@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "debug-playground.fullname" . }}
+  labels:
+    {{- include "debug-playground.labels" . | nindent 4 }}
+data:
+  default.conf: |
+    server {
+      listen 80;
+      root /usr/share/nginx/html;
+
+      index index.html;
+      location / {
+        try_files $uri $uri/ =404;
+        add_header Cache-Control "public, max-age=172800";
+      }
+    }
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Welcome to debug-playground!</title>
+      </head>
+      <body>
+        <h1>Welcome to debug-playground!</h1>
+      </body>
+    </html>
