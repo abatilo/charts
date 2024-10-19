@@ -19,7 +19,7 @@ spec:
       labels:
         name: {{ include "debug-playground.fullname" . }}
     spec:
-      serviceAccountName: incorrect
+      serviceAccountName: default
       containers:
         - name: {{ .Chart.Name }}
           image: "nginx:{{ .Chart.AppVersion }}"
