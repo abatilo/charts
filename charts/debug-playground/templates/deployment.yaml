@@ -17,7 +17,7 @@ spec:
   template:
     metadata:
       labels:
-        name: {{ include "debug-playground.fullname" . }}
+        namee: {{ include "debug-playground.fullname" . }}
     spec:
       nodeSelector:
         wontmatch: anything
