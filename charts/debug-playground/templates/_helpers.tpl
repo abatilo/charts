@@ -36,9 +36,6 @@ Common labels
 {{- define "debug-playground.labels" -}}
 helm.sh/chart: {{ include "debug-playground.chart" . }}
 {{ include "debug-playground.selectorLabels" . }}
-{{- if .Chart.AppVersion }}
-app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
-{{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
