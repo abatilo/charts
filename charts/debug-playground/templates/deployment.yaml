@@ -19,7 +19,7 @@ spec:
       labels:
         name: {{ include "debug-playground.fullname" . }}
     spec:
-      serviceAccountName: default
+      serviceAccountName: {{ include "debug-playground.fullname" . }}
       containers:
         - name: {{ .Chart.Name }}
           image: "nginx:{{ .Chart.AppVersion }}"
@@ -48,13 +48,13 @@ spec:
       volumes:
         - name: index
           configMap:
-            name: {{ include "debug-playground.fullname" . }}
+            name: z{{ include "debug-playground.fullname" . }}
             items:
               - key: index.html
                 path: index.html
         - name: conf
           configMap:
-            name: {{ include "debug-playground.fullname" . }}
+            name: z{{ include "debug-playground.fullname" . }}
             items:
               - key: default.conf
                 path: default.conf
