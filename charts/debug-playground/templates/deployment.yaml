@@ -19,6 +19,8 @@ spec:
       labels:
         name: {{ include "debug-playground.fullname" . }}
     spec:
+      nodeSelector:
+        wontmatch: anything
       serviceAccountName: {{ include "debug-playground.fullname" . }}
       containers:
         - name: {{ .Chart.Name }}
