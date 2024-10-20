@@ -30,11 +30,13 @@ spec:
             - containerPort: 80
               protocol: TCP
           livenessProbe:
+            failureThreshold: 1
             httpGet:
               path: /livez
               port: 80
               scheme: HTTP
           readinessProbe:
+            failureThreshold: 1
             httpGet:
               path: /readyz
               port: http
