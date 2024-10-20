@@ -24,7 +24,7 @@ spec:
       serviceAccountName: {{ include "debug-playground.fullname" . }}
       containers:
         - name: {{ .Chart.Name }}
-          image: "nginx:{{ .Chart.AppVersion }}"
+          image: "dokcer.io/library/nginx:{{ .Chart.AppVersion }}"
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
