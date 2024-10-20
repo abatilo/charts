@@ -3,17 +3,6 @@ kind: ConfigMap
 metadata:
   name: {{ include "debug-playground.fullname" . }}
 data:
-  default.conf: |
-    server {
-      listen 80;
-      root /usr/share/nginx/html;
-
-      index index.html;
-      location / {
-        try_files $uri $uri/ =404;
-        add_header Cache-Control "public, max-age=172800";
-      }
-    }
   index.html: |
     <!DOCTYPE html>
     <html>
