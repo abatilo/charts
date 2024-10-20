@@ -10,7 +10,7 @@ spec:
     rollingUpdate:
       maxSurge: 100%
       maxUnavailable: 100%
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       name: {{ include "debug-playground.fullname" . }}
