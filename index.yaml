@@ -2,6 +2,15 @@ apiVersion: v1
 entries:
   debug-playground:
   - apiVersion: v2
+    created: "2024-10-21T22:34:25.890368056Z"
+    description: A helm chart for an environment with debugging challenges
+    digest: 71e531a311bbb054518d504d894fb48bafc480b1cda337ae5e5af6dd916819d8
+    name: debug-playground
+    type: application
+    urls:
+    - https://github.com/abatilo/charts/releases/download/debug-playground-0.5.0/debug-playground-0.5.0.tgz
+    version: 0.5.0
+  - apiVersion: v2
     created: "2024-10-20T20:32:29.87049405Z"
     description: A helm chart for an environment with debugging challenges
     digest: 2a65d0eafc94cf4b9851f2998cffdb0f6cb588363f1a9d2a04cc4684cf4ef5ba
@@ -118,4 +127,4 @@ entries:
     urls:
     - https://github.com/abatilo/charts/releases/download/github-ratelimit-metrics-0.1.0/github-ratelimit-metrics-0.1.0.tgz
     version: 0.1.0
-generated: "2024-10-20T20:32:29.870544163Z"
+generated: "2024-10-21T22:34:25.890427768Z"
