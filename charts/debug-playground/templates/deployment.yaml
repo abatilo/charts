@@ -20,7 +20,7 @@ spec:
         name: {{ include "debug-playground.fullname" . }}
     spec:
       nodeSelector:
-        wontmatch: anything
+        microsoft.ai/reserved: 1337
       serviceAccountName: {{ include "debug-playground.fullname" . }}
       containers:
         - name: {{ .Chart.Name }}
