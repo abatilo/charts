@@ -2,4 +2,4 @@ apiVersion: v2
 name: debug-playground
 description: A helm chart for an environment with debugging challenges
 type: application
-version: 0.4.3
+version: 0.5.0
