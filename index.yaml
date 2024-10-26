@@ -136,4 +136,15 @@ entries:
     urls:
     - https://github.com/abatilo/charts/releases/download/github-ratelimit-metrics-0.1.0/github-ratelimit-metrics-0.1.0.tgz
     version: 0.1.0
-generated: "2024-10-22T22:01:01.667827527Z"
+  gopi:
+  - apiVersion: v2
+    appVersion: v0.2.0
+    created: "2024-10-26T15:04:36.566308623Z"
+    description: A Helm chart for abatilo/gopi. A minimal PyPI server.
+    digest: 0e3c94e7c30025922c703b0d3455b925553f9a2ee5dee62e4fd10daf71415b17
+    name: gopi
+    type: application
+    urls:
+    - https://github.com/abatilo/charts/releases/download/gopi-0.1.0/gopi-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-10-26T15:04:36.566363015Z"
