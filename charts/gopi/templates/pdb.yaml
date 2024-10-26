@@ -1,0 +1,21 @@
+{{- if .Values.pdb.enabled }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "gopi.fullname" . }}
+  labels:
+    {{- include "gopi.labels" . | nindent 4 }}
+spec:
+  {{- if and .Values.pdb.minAvailable .Values.pdb.maxUnavailable }}
+    {{- fail "Cannot specify both minAvailable and maxUnavailable in PDB" }}
+  {{- else if .Values.pdb.minAvailable }}
+  minAvailable: {{ .Values.pdb.minAvailable }}
+  {{- else if .Values.pdb.maxUnavailable }}
+  maxUnavailable: {{ .Values.pdb.maxUnavailable }}
+  {{- else }}
+    {{- fail "Must specify either minAvailable or maxUnavailable in PDB" }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "gopi.selectorLabels" . | nindent 6 }}
+{{- end }}
