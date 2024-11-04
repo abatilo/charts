@@ -139,6 +139,16 @@ entries:
   gopi:
   - apiVersion: v2
     appVersion: v0.2.1
+    created: "2024-11-04T16:42:26.836110737Z"
+    description: A Helm chart for abatilo/gopi. A minimal PyPI server.
+    digest: f0c086113b95fd8f973e4e81bd7540d2abbd2607ae96da40849a1e3a2becd8ee
+    name: gopi
+    type: application
+    urls:
+    - https://github.com/abatilo/charts/releases/download/gopi-0.7.0/gopi-0.7.0.tgz
+    version: 0.7.0
+  - apiVersion: v2
+    appVersion: v0.2.1
     created: "2024-10-26T16:25:12.450308029Z"
     description: A Helm chart for abatilo/gopi. A minimal PyPI server.
     digest: c438a7e88b1829dca195100e5a1ac132ae953ca7398692cfb23df3876d7caf68
@@ -197,4 +207,4 @@ entries:
     urls:
     - https://github.com/abatilo/charts/releases/download/gopi-0.1.0/gopi-0.1.0.tgz
     version: 0.1.0
-generated: "2024-10-26T16:25:12.450354455Z"
+generated: "2024-11-04T16:42:26.836165338Z"
