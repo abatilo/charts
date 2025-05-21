@@ -207,4 +207,15 @@ entries:
     urls:
     - https://github.com/abatilo/charts/releases/download/gopi-0.1.0/gopi-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-04T16:42:26.836165338Z"
+  tf-template:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-05-21T22:04:22.017572325Z"
+    description: A Helm chart for Kubernetes
+    digest: d0342cfa7adbcb3809c9f75628dff9c3588e2524c066243caff5d64e620fd2e6
+    name: tf-template
+    type: application
+    urls:
+    - https://github.com/abatilo/charts/releases/download/tf-template-0.1.0/tf-template-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-05-21T22:04:22.017611788Z"
