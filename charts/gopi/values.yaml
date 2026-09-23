@@ -58,6 +58,8 @@ securityContext: {}
 
 # This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
 service:
+  # Overrides the Service name without renaming the other chart resources.
+  nameOverride: ""
   # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
   type: ClusterIP
   # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
@@ -138,3 +140,6 @@ pvc:
     requests:
       storage: 1Gi
   storageClassName: default
+
+# Additional Kubernetes objects to render with the release.
+extraObjects: []
