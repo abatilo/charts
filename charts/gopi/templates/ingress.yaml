@@ -35,7 +35,7 @@ spec:
             {{- end }}
             backend:
               service:
-                name: {{ include "gopi.fullname" $ }}
+                name: {{ include "gopi.serviceName" $ }}
                 port:
                   number: 80
           {{- end }}

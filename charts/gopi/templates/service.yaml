@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "gopi.fullname" . }}
+  name: {{ include "gopi.serviceName" . }}
   labels:
     {{- include "gopi.labels" . | nindent 4 }}
   {{- with .Values.service.annotations }}
