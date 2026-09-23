@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "gopi.fullname" . }}:{{ .Values.service.port }}']
+      args: ['{{ include "gopi.fullname" . }}:80']
   restartPolicy: Never
