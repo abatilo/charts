@@ -3,4 +3,4 @@ name: gopi
 description: A Helm chart for abatilo/gopi. A minimal PyPI server.
 type: application
 version: 0.8.0
-appVersion: "v0.3.0"
+appVersion: "v0.2.1"

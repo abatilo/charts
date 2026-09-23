@@ -140,6 +140,3 @@ pvc:
     requests:
       storage: 1Gi
   storageClassName: default
-
-# Additional Kubernetes objects to render with the release.
-extraObjects: []
