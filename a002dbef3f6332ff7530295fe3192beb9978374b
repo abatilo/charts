@@ -1,0 +1,17 @@
+## Intent & Decisions
+User asked for a micro commit on main, pushed immediately, fixing the port mismatch found while reviewing PR #2. Chose to delete service.port and hardcode 80 instead of templating the Service port, so the Service port does not change for anyone who had set service.port.
+
+## Actions & Verification
+Pushed to origin main. helm lint passed. helm template with ingress.enabled=true renders Service port 80 and Ingress backend port 80. Not tested against a live cluster.
+
+## Errors & Mistakes
+None
+
+## Attempts & Outcomes
+None
+
+## Findings & Constraints
+e881bc9 hardcoded Service port 80 and containerPort 8080 but left service.port in values and three templates. Users who set service.port get no error; the value is now ignored.
+
+## Open Questions
+None
